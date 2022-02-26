@@ -1,5 +1,6 @@
 package it.prova.gestionearticolijspservletjpamaven.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -8,6 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 @Table(name = "articolo")
@@ -26,6 +30,12 @@ public class Articolo {
 	@Column(name = "dataarrivo")
 	private Date dataArrivo;
 
+	// campi per le time info del record
+	@CreationTimestamp
+	private LocalDateTime createDateTime;
+	@UpdateTimestamp
+	private LocalDateTime updateDateTime;
+
 	public Articolo() {
 	}
 
@@ -35,12 +45,12 @@ public class Articolo {
 		this.prezzo = prezzo;
 		this.dataArrivo = dataArrivo;
 	}
-	
+
 	public Articolo(String codice, String descrizione) {
 		this.codice = codice;
 		this.descrizione = descrizione;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -80,5 +90,23 @@ public class Articolo {
 	public void setDataArrivo(Date dataArrivo) {
 		this.dataArrivo = dataArrivo;
 	}
+
+	public LocalDateTime getCreateDateTime() {
+		return createDateTime;
+	}
+
+	public void setCreateDateTime(LocalDateTime createDateTime) {
+		this.createDateTime = createDateTime;
+	}
+
+	public LocalDateTime getUpdateDateTime() {
+		return updateDateTime;
+	}
+
+	public void setUpdateDateTime(LocalDateTime updateDateTime) {
+		this.updateDateTime = updateDateTime;
+	}
+	
+	
 
 }
