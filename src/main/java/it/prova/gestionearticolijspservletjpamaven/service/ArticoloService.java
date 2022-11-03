@@ -18,7 +18,7 @@ public interface ArticoloService {
 
 	public void inserisciNuovo(Articolo input) throws Exception;
 
-	public void rimuovi(Articolo input) throws Exception;
+	public void rimuovi(Long idArticoloToRemove) throws Exception;
 
 	public List<Articolo> findByExample(Articolo input) throws Exception;
 

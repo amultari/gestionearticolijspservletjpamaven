@@ -87,7 +87,7 @@ public class ArticoloServiceImpl implements ArticoloService {
 	}
 
 	@Override
-	public void rimuovi(Articolo input) throws Exception {
+	public void rimuovi(Long idArticoloToRemove) throws Exception {
 		// TODO Auto-generated method stub
 	}
 
