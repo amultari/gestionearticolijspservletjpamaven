@@ -1,5 +1,5 @@
 <!doctype html>
-<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="it.prova.gestionearticolijspservletjpamaven.model.Articolo"%>
 <html lang="it" class="h-100" >
 	 <head>
@@ -66,7 +66,7 @@
 								<div class="col-md-3">
 									<label for="dataNascita" class="form-label">Data di Arrivo<span class="text-danger">*</span></label>
 									<input class="form-control"  name="dataArrivo" id="dataArrivo" type="date" placeholder="dd/MM/yy" title="formato : gg/mm/aaaa" 
-										value="<%=articoloInPagina.getDataArrivo()!=null? new SimpleDateFormat("yyyy-MM-dd").format(articoloInPagina.getDataArrivo()):""  %>" required/>
+										value="<%=articoloInPagina.getDataArrivo()!=null? articoloInPagina.getDataArrivo().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")):""  %>" required/>
 								</div>
 								
 								

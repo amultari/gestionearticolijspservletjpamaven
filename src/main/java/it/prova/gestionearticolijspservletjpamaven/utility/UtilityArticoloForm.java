@@ -1,8 +1,7 @@
 package it.prova.gestionearticolijspservletjpamaven.utility;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
@@ -29,21 +28,20 @@ public class UtilityArticoloForm {
 		// prima controlliamo che non siano vuoti i parametri
 		if (StringUtils.isBlank(articoloToBeValidated.getCodice())
 				|| StringUtils.isBlank(articoloToBeValidated.getDescrizione())
-				|| articoloToBeValidated.getPrezzo() == null 
-				|| articoloToBeValidated.getPrezzo() < 1
+				|| articoloToBeValidated.getPrezzo() == null || articoloToBeValidated.getPrezzo() < 1
 				|| articoloToBeValidated.getDataArrivo() == null) {
 			return false;
 		}
 		return true;
 	}
 
-	public static Date parseDateArrivoFromString(String dataArrivoStringParam) {
+	public static LocalDate parseDateArrivoFromString(String dataArrivoStringParam) {
 		if (StringUtils.isBlank(dataArrivoStringParam))
 			return null;
 
 		try {
-			return new SimpleDateFormat("yyyy-MM-dd").parse(dataArrivoStringParam);
-		} catch (ParseException e) {
+			return LocalDate.parse(dataArrivoStringParam);
+		} catch (DateTimeParseException e) {
 			return null;
 		}
 	}

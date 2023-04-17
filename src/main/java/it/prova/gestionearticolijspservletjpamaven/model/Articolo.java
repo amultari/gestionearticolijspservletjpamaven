@@ -1,7 +1,7 @@
 package it.prova.gestionearticolijspservletjpamaven.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,7 +28,7 @@ public class Articolo {
 	@Column(name = "prezzo")
 	private Integer prezzo;
 	@Column(name = "dataarrivo")
-	private Date dataArrivo;
+	private LocalDate dataArrivo;
 
 	// campi per le time info del record
 	@CreationTimestamp
@@ -39,7 +39,7 @@ public class Articolo {
 	public Articolo() {
 	}
 
-	public Articolo(String codice, String descrizione, Integer prezzo, Date dataArrivo) {
+	public Articolo(String codice, String descrizione, Integer prezzo, LocalDate dataArrivo) {
 		this.codice = codice;
 		this.descrizione = descrizione;
 		this.prezzo = prezzo;
@@ -83,11 +83,11 @@ public class Articolo {
 		this.prezzo = prezzo;
 	}
 
-	public Date getDataArrivo() {
+	public LocalDate getDataArrivo() {
 		return dataArrivo;
 	}
 
-	public void setDataArrivo(Date dataArrivo) {
+	public void setDataArrivo(LocalDate dataArrivo) {
 		this.dataArrivo = dataArrivo;
 	}
 
@@ -106,7 +106,5 @@ public class Articolo {
 	public void setUpdateDateTime(LocalDateTime updateDateTime) {
 		this.updateDateTime = updateDateTime;
 	}
-	
-	
 
 }

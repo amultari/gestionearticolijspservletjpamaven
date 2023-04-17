@@ -1,5 +1,5 @@
 <!doctype html>
-<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="it.prova.gestionearticolijspservletjpamaven.model.Articolo"%>
 <html lang="it" class="h-100" >
 	 <head>
@@ -44,7 +44,7 @@
 					    	
 					    	<dl class="row">
 							  <dt class="col-sm-3 text-right">Data di Arrivo:</dt>
-							  <dd class="col-sm-9"><%=articoloInPagina.getDataArrivo()!=null? new SimpleDateFormat("dd/MM/yyyy").format(articoloInPagina.getDataArrivo()):"N.D."  %></dd>
+							  <dd class="col-sm-9"><%=articoloInPagina.getDataArrivo()!=null? articoloInPagina.getDataArrivo().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")):"N.D."  %></dd>
 					    	</dl>
 					    	
 					    </div>

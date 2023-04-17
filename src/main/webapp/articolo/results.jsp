@@ -1,4 +1,4 @@
-<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="it.prova.gestionearticolijspservletjpamaven.model.Articolo"%>
 <%@page import="java.util.List"%>
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
@@ -64,7 +64,7 @@
 				                        <td><%=item.getCodice() %></td>
 				                        <td><%=item.getDescrizione() %></td>
 				                        <td><%=item.getPrezzo() %></td>
-				                        <td><%=item.getDataArrivo()!=null? new SimpleDateFormat("dd/MM/yyyy").format(item.getDataArrivo()):"N.D."%></td>
+				                        <td><%=item.getDataArrivo()!=null? item.getDataArrivo().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")):"N.D."%></td>
 				                        <td>
 											<a class="btn  btn-sm btn-outline-secondary" href="ExecuteVisualizzaArticoloServlet?idArticolo=<%=item.getId() %>">Visualizza</a>
 											<a class="btn  btn-sm btn-outline-primary ml-2 mr-2" href="laservletpermodificare">Edit</a>
